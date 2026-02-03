@@ -18,13 +18,13 @@
                 <h2>New item</h2>
                 
                 <label>Date</label>
-                <input type="date" id="date-input">
+                <input type="date" id="date-input" min="2025-01-01">
 
                 <label>Name</label>
                 <input type="text" id="name-input" placeholder="item name">
 
                 <label>Amount (Ft)</label>
-                <input type="number" id="amount-input" placeholder="0">
+                <input type="number" id="amount-input" min="0" placeholder="0">
                 
                 <label>Type</label>
                 <select id="type-input">
@@ -58,6 +58,7 @@
         </div>
     </div>
 
+    <script src="script.js"></script>
 
 </body>
 </html>
