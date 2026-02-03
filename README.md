@@ -4,7 +4,7 @@ A secure and user-friendly web application to track personal finances.
 Currently under development as part of my Full-Stack portfolio.
 
 ## 🛠️ | Tech Stack
-- **Frontend:** HTML5, Bootstrap 5, JavaScript (Fetch API)
+- **Frontend:** HTML5, JavaScript (Fetch API)
 - **Backend:** C# ASP.NET Core Web API (Coming soon)
 - **Database:** MS SQL Server (Coming soon)
 
