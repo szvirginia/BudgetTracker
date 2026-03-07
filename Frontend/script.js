@@ -3,7 +3,8 @@ let date = document.querySelector("#date-input").value;
 
 let array = [];
 
-function addItem() { 
+// async = we must wait for the backend to respond, before we can continue with the code
+async function addItem() { 
     let date = document.querySelector("#date-input").value;
     let name = document.querySelector("#name-input").value;
     let amount = document.querySelector("#amount-input").value;
@@ -63,6 +64,37 @@ function addItem() {
 
     tableBody.innerHTML += newRow;
     document.querySelector("#total-balance").innerText = currentBalance;
+
+    //send data to backend
+    const transactionData = {
+        date: date,
+        name: name,
+        amount: parseInt(amount),
+        type: type == "expense" ? 0 : 1
+    };
+
+    try {
+        // Replace with your actual API endpoint, await = wait for the response before moving on
+        const response = await fetch('http://localhost:5085/api/budget', {
+            // Not just bringing, but also sending data, so POST method
+            method: 'POST',
+            headers: {
+                // Whats being sent is in JSON format, so we need to specify that in the header
+                'Content-Type': 'application/json'
+            },
+            // We need to convert the JavaScript object into a JSON string before sending it
+            body: JSON.stringify(transactionData)
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        } else {
+            console.log('Data sent successfully');
+        }
+    } catch (error) {
+        console.error('There was a problem with the fetch operation:', error);
+    }
+
 
     // refresh
     document.getElementById("name-input").value = "";

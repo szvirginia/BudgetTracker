@@ -10,24 +10,30 @@ namespace Backend.Controllers;
 public class BudgetController : ControllerBase
 {
     // Notes - while we don't have a database, we will use a static list to store our transactions in memory. This is just for demonstration purposes and should not be used in production.
-    private static List<Transaction> _transactions = new List<Transaction>();
+    //private static List<Transaction> _transactions = new List<Transaction>();
 
+    private readonly BudgetContext _context;
+
+    // Itt a DI: "Befecskendezzük" az adatbázist
+    public BudgetController(BudgetContext context)
+    {
+        _context = context;
+    }
 
     // Show all transactions (GET)
     [HttpGet]
-    public ActionResult<List<Transaction>> GetAllItems()
+    public List<Backend.Models.Transaction> Get()
     {
-        return Ok(_transactions);
+        return _context.Transactions.ToList();
     }
 
 
     // Add a new transaction (POST)
     [HttpPost]
-    public ActionResult AddNewItem(Transaction newItem)
+    public IActionResult Post(Backend.Models.Transaction newItem)
     {
-        // New item
-        newItem.Id = _transactions.Count + 1;
-        _transactions.Add(newItem);
-        return Ok(newItem); 
+        _context.Transactions.Add(newItem);
+        _context.SaveChanges();
+        return Ok();
     }
 }
