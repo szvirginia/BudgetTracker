@@ -5,7 +5,7 @@ Currently under development as part of my Full-Stack portfolio.
 
 ## 🛠️ | Tech Stack
 - **Frontend:** HTML5, JavaScript (Fetch API)
-- **Backend:** C# ASP.NET Core Web API (Coming soon)
+- **Backend:** C# ASP.NET Core Web API
 - **Database:** MS SQL Server (Coming soon)
 
 ## 🚀 | Features (Planned)
