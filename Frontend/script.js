@@ -28,7 +28,7 @@ function addItem() {
 
     if (array[0] == 2 && array[1] == 0 && array[2] == 2){
         if (array[3] < 5 || array[3] > 6){
-            alert("Not accepted datae");
+            alert("Not accepted date");
             return;
         }
     }
