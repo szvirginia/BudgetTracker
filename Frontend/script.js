@@ -99,5 +99,24 @@ async function addItem() {
     // refresh
     document.getElementById("name-input").value = "";
     document.getElementById("amount-input").value = "";
+};
+    
+    window.onload = async function() {
+    const response = await fetch('http://localhost:5085/api/Budget');
+    const adatok = await response.json();
+    console.log("A szerveren tárolt tételek:", adatok);
 
+    let tableBody = document.querySelector("#list-body");
+
+    adatok.forEach(item => {
+        let row = `
+            <tr>
+                <td>${item.date.split('T')[0]}</td>
+                <td>${item.name}</td>
+                <td>${item.amount} Ft</td>
+                <td>${item.type === 0 ? 'Expense' : 'Income'}</td>
+            </tr>
+        `;
+        tableBody.innerHTML += row;
+    });
 }

@@ -35,3 +35,6 @@ D:\_PROJECTS\Personal Budget Tracker\Backend\bin\Debug\net9.0\Swashbuckle.AspNet
 D:\_PROJECTS\Personal Budget Tracker\Backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\_PROJECTS\Personal Budget Tracker\Backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\_PROJECTS\Personal Budget Tracker\Backend\obj\Debug\net9.0\swae.build.ex.cache
+D:\_PROJECTS\Personal Budget Tracker\Backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+D:\_PROJECTS\Personal Budget Tracker\Backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\_PROJECTS\Personal Budget Tracker\Backend\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.InMemory.dll
