@@ -59,6 +59,7 @@ async function addItem() {
                     ${amountNumber} Ft
                 </td>
                 <td>${type === 'expense' ? 'Expense' : 'Income'}</td>
+                <td><span style="color:gray; font-size:12px;">Need until delete</span></td>
         </tr>
     `;
 
@@ -115,8 +116,17 @@ async function addItem() {
                 <td>${item.name}</td>
                 <td>${item.amount} Ft</td>
                 <td>${item.type === 0 ? 'Expense' : 'Income'}</td>
+                <td><button onclick="deleteItem(${item.id})" style="color:white; cursor:pointer;">X</button></td>
             </tr>
         `;
         tableBody.innerHTML += row;
     });
 }
+    
+    // deleteItem function
+    async function deleteItem(id) {
+        if (confirm("Are you sure you want to delete this item?")) {
+            await fetch(`http://localhost:5085/api/budget/${id}`, {method: 'DELETE'});
+            location.reload(); // Refresh the page to reflect changes
+        }
+    }

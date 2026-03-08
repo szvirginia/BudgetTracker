@@ -36,4 +36,17 @@ public class BudgetController : ControllerBase
         _context.SaveChanges();
         return Ok();;
     }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteTransaction(int id)
+    {
+        var transaction = await _context.Transactions.FindAsync(id);
+        if (transaction == null)
+        {
+            return NotFound();
+        }
+        _context.Transactions.Remove(transaction);
+        await _context.SaveChangesAsync();
+        return NoContent();
+    }
 }
