@@ -34,6 +34,6 @@ public class BudgetController : ControllerBase
     {
         _context.Transactions.Add(newItem);
         _context.SaveChanges();
-        return Ok();
+        return Ok();;
     }
 }
